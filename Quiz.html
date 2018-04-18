@@ -1,0 +1,267 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>
+Quiz
+</title>
+<script type="text/javascript">
+var iloscpytan = 15;
+var wynik = 0;
+var wynikpokaz = 0;
+var pytania = new Array(iloscpytan);
+var klucz = new Array('1','2','2','0','1','3','3','0','1','0','0','2','0','1','2');
+
+function pobierz() { 
+for(i=1; i <=iloscpytan; i++)
+{ 
+for (j=0; j<=3; j++) {
+if(eval("document.getElementById(\"test\").pytanie"+i+"["+j+"].checked == true"))
+{
+pytania[i] = eval("document.getElementById(\"test\").pytanie"+i+"["+j+"].value");
+break;
+}
+}
+}
+}
+
+function sprawdz() {
+for( i=1; i <=iloscpytan; i++)
+{ 
+if ( pytania[i] == klucz[i-1] )
+wynik++;
+}
+}
+
+function main() {
+pobierz();
+sprawdz();
+wynikpokaz = Math.round((wynik / iloscpytan)*100); 
+alert(wynikpokaz + " % (" + wynik + " odpowiedzi poprawnych)");
+
+
+
+
+}
+</script>
+</head>
+<body bgcolor="#BF347E">
+<center><h1>Quiz - Javascript</h1></center>
+<form name="test" id="test" onsubmit="main();">
+<fieldset>
+<legend> <p>Pytanie nr 1 </p></legend>
+<center><h1> Jak nazywa się twórca języka Javascript: </h1>
+<table width="500" height="100" border="0" id="q1">
+	<tr>
+		<td><h3><input type="radio" name="pytanie1" id="a1" value="0"/>Bjarne Stroustrup</h3></td>
+		<td><h3><input type="radio" name="pytanie1" id="a2" value="1"/>Brendan Eich</h3></td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie1" id="a3" value="2"/>Guido van Rossum</h3></td>
+		<td><h3><input type="radio" name="pytanie1" id="a4" value="3"/>James Gosling</h3></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 2 </p></legend>
+<center><h1>Do wywoływania funkcji o nazwie "funkcja": </h1>
+<table width="500" height="100" border="0" id="q2">
+	<tr>
+		<td><h3><input type="radio" name="pytanie2" id="a5" value="0"/>call function funkcja();</td>
+		<td><h3><input type="radio" name="pytanie2" id="a6" value="1"/>call funkcja();</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie2" id="a7" value="2"/>funkcja();</td>
+		<td><h3><input type="radio" name="pytanie2" id="a8" value="3"/>function funkcja();</td>
+	</tr>
+</table>
+</fieldset>	
+<fieldset>
+<legend> <p>Pytanie nr 3 </p></legend>
+<center><h1>Która metoda zdobycia Document Object Model jest błędna:</h1>
+<table width="600" height="100" border="0" id="q3">
+	<tr>
+		<td><h3><input type="radio" name="pytanie3" id="a9" value="0"/>getElementById('nazwa')</td>
+		<td><h3><input type="radio" name="pytanie3" id="a10" value="1"/>getElementsByClassName('nazwa')</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie3" id="a11" value="2"/>getElementsByName('nawza')</td>
+		<td><h3><input type="radio" name="pytanie3" id="a12" value="3"/>getElementsByTagName('nazwa')</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 4 </p></legend>
+<center><h1>Które polecenie służy do wypisywania tekstu:</h1>
+<table width="700" height="100" border="0" id="q4">
+	<tr>
+		<td><h3><input type="radio" name="pytanie4" id="a13" value="0"/>document.write('Hello world!');</td>
+		<td><h3><input type="radio" name="pytanie4" id="a14" value="1"/>document.echo('Hello world!');</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie4" id="a15" value="2"/>document.show('Hello world!');</td>
+		<td><h3><input type="radio" name="pytanie4" id="a16" value="3"/>document.print('Hello world!');</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 5 </p></legend>
+<center><h1>Która z podanych bibliotek nie występuje w Javascript:</h1>
+<table width="400" height="100" border="0" id="q5">
+	<tr>
+		<td><h3><input type="radio" name="pytanie5" id="a17" value="0"/>jQuery</td>
+		<td><h3><input type="radio" name="pytanie5" id="a18" value="1"/>Qt</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie5" id="a19" value="2"/>Bootstrap</td>
+		<td><h3><input type="radio" name="pytanie5" id="a20" value="3"/>AngularJS
+</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 6 </p></legend>
+<center><h1>W środku którego elementu HTML umieszczamy kod Javascript:</h1>
+<table width="400" height="100" border="0" id="q6">
+	<tr>
+		<td><h3><input type="radio" name="pytanie6" id="a21" value="0"/>< scripting ></td>
+		<td><h3><input type="radio" name="pytanie6" id="a22" value="1"/>< js ></td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie6" id="a23" value="2"/>< javascript ></td>
+		<td><h3><input type="radio" name="pytanie6" id="a24" value="3"/>< script > </td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 7 </p></legend>
+<center><h1>Które z poleceń wyświetli okno alert z napiem "Hello":</h1>
+<table width="600" height="100" border="0" id="q7">
+	<tr>
+		<td><h3><input type="radio" name="pytanie7" id="a25" value="0"/>msgBox("Hello World");</td> 
+		<td><h3><input type="radio" name="pytanie7" id="a26" value="1"/>msg("Hello World");</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie7" id="a27" value="2"/>alertBox("Hello World");</td>
+		<td><h3><input type="radio" name="pytanie7" id="a28" value="3"/>alert("Hello World");</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 8 </p></legend>
+<center><h1>Za pomocą której funkcji zaokrąglimy liczbę do najbliższej całkowitej:</h1>
+<table width="400" height="100" border="0" id="q8">
+	<tr>
+		<td><h3><input type="radio" name="pytanie8" id="a29" value="0"/>Math.round(9.7)</td>
+		<td><h3><input type="radio" name="pytanie8" id="a30" value="1"/>round(9.7)</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie8" id="a31" value="2"/>Math.rnd(9.7)</td>
+		<td><h3><input type="radio" name="pytanie8" id="a32" value="3"/>rnd(9.7)</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 9 </p></legend>
+<center><h1>Jakie wydarzenie ma miejsce gdy użytkownik kliknie element HTML:</h1>
+<table width="400" height="100" border="0" id="q9">
+	<tr>
+		<td><h3><input type="radio" name="pytanie9" id="a33" value="0"/>onchange</td>
+		<td><h3><input type="radio" name="pytanie9" id="a34" value="1"/>onclick</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie9" id="a35" value="2"/>onmouseover</td>
+		<td><h3><input type="radio" name="pytanie9" id="a36" value="3"/>onmouseclick</td>
+	</tr>
+</table>
+</fieldset>	
+<fieldset>
+<legend> <p>Pytanie nr 10 </p></legend>
+<center><h1>Który operator służy do przypisywania wartości zmiennej:</h1>
+<table width="400" border="0" id="q10">
+	<tr>
+		<td><h3><input type="radio" name="pytanie10" id="a37" value="0"/>  =</td>
+		<td><h3><input type="radio" name="pytanie10" id="a38" value="1"/>  *</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie10" id="a39" value="2"/>  -</td>
+		<td><h3><input type="radio" name="pytanie10" id="a40" value="3"/>  x</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 11 </p></legend>
+<center><h1>Zaznacz składnie odwołania do skryptu zewnętrznego:</h1>
+<table width="500" height="100" border="0" id="q11">
+	<tr>
+		<td><h3><input type="radio" name="pytanie11" id="a41" value="0"/>< script src="xxx.js" ></td>
+		<td><h3><input type="radio" name="pytanie11" id="a42" value="1"/>< script name="xxx.js" ></td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie11" id="a43" value="2"/>< script href="xxx.js" ></td>
+		<td><h3><input type="radio" name="pytanie11" id="a44" value="3"/>< script value="xxx.js" ></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 12 </p></legend>
+<center><h1>Jak tworzymy funkcje:</h1>
+<table width="400" height="100" border="0" id="q12">
+	<tr>
+		<td><h3><input type="radio" name="pytanie12" id="a45" value="0"/>function:funkcja()</td>
+		<td><h3><input type="radio" name="pytanie12" id="a46" value="1"/>function=fukncja()</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie12" id="a47" value="2"/>function funkcja()</td>
+		<td><h3><input type="radio" name="pytanie12" id="a48" value="3"/>funkcja():function</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 13 </p></legend>
+<center><h1>Jak dodajemy komentarz w Javascript:</h1>
+<table width="400" height="100" border="0" id="q13">
+	<tr>
+		<td><h3><input type="radio" name="pytanie13" id="a49" value="0"/>//komentarz</td>
+		<td><h3><input type="radio" name="pytanie13" id="a50" value="1"/>`komentarz`</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie13" id="a51" value="2"/>< !--komentarz-- ></td>
+		<td><h3><input type="radio" name="pytanie13" id="a52" value="3"/>#komentarz</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 14 </p></legend>
+<center><h1>Jak zaczyna się pętla "for":</h1>
+<table width="400" height="100" border="0" id="q14">
+	<tr>
+		<td><h3><input type="radio" name="pytanie14" id="a53" value="0"/>for (i = 0; i <= 5)</td>
+		<td><h3><input type="radio" name="pytanie14" id="a54" value="1"/>for (i = 0; i <= 5; i++)</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie14" id="a55" value="2"/>for (i <= 5; i++)</td>
+		<td><h3><input type="radio" name="pytanie14" id="a56" value="3"/>for i = 1 to 5</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend> <p>Pytanie nr 15 </p></legend>
+<center><h1>Która funkcja matematyczna odnajdzie największą liczbę ze zbioru:</h1>
+<table width="400" height="100" border="0" id="q15">
+	<tr>
+		<td><h3><input type="radio" name="pytanie15" id="a57" value="0"/>top(2,4)</td>
+		<td><h3><input type="radio" name="pytanie15" id="a58" value="1"/>ceil(2,4)</td>
+	</tr>
+	<tr>
+		<td><h3><input type="radio" name="pytanie15" id="a59" value="2"/>Math.max(2,4)</td>
+		<td><h3><input type="radio" name="pytanie15" id="a60" value="3"/>Math.ceil(2,4)</td>
+	</tr>
+</table></center>
+</fieldset>
+<br>
+<center>
+<input type="submit" name="przycisk" value="Sprawdź wynik" onclick="pokaz()"/>
+</center>
+<p id="wynik"></p>
+</body>
+</html>
